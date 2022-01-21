@@ -5,7 +5,7 @@ public class Win {
 
         boolean result = false;
         for (int i = 0; i < board.length; i++) {
-            if (board[i][i] == 1 && checkRow(board, i) || checkColumn(board, i)) {
+            if (board[i][i] == 1 && (checkRow(board, i) || checkColumn(board, i))) {
                 result = true;
                 break;
             }
