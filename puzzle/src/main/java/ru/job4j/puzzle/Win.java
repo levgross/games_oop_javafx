@@ -2,36 +2,34 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean check(int[][] board) {
-        return winLine(board) || winRow(board);
-    }
 
-    public static boolean winLine(int[][] board) {
         boolean result = false;
-        int sum;
         for (int i = 0; i < board.length; i++) {
-            sum = 0;
-            for (int j = 0; j < board[0].length; j++) {
-                sum += board[i][j];
-                if (sum == board[0].length) {
-                    result = true;
-                    break;
-                }
+            if (checkRow(board, i) || checkColumn(board, i)) {
+                result = true;
+                break;
             }
         }
         return result;
     }
 
-    public static boolean winRow(int[][] board) {
-        boolean result = false;
-        int sum;
-        for (int i = 0; i < board.length; i++) {
-            sum = 0;
-            for (int j = 0; j < board[0].length; j++) {
-                sum += board[j][i];
-                if (sum == board.length) {
-                    result = true;
+    public static boolean checkRow(int[][] board, int row) {
+        boolean result = true;
+        for (int i = 0; i < board[row].length; i++) {
+                if (board[row][i] != 1) {
+                    result = false;
                     break;
                 }
+            }
+        return result;
+    }
+
+    public static boolean checkColumn(int[][] board, int column) {
+        boolean result = true;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][column] != 1) {
+                result = false;
+                break;
             }
         }
         return result;
