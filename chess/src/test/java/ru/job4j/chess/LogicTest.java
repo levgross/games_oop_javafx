@@ -11,15 +11,6 @@ import static org.junit.Assert.assertThat;
 
 public class LogicTest {
 
-    @Ignore
-    @Test
-    public void whenMoveBishopBlackWorks()
-            throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {
-        Logic logic = new Logic();
-        logic.add(new BishopBlack(Cell.C1));
-        logic.move(Cell.C1, Cell.H6);
-    }
-
     @Test (expected = FigureNotFoundException.class)
     public void whenFigureNotFoundExceptionThrownThenExpectationSatisfied()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
